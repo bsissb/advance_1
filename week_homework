@@ -40,3 +40,29 @@ def path_all_file(folder_path):
         allfile.write(readFile)
         File.close()
 
+
+# def count_url(url):
+#     openpage = urllib.urlopen(url)
+#     webget = openpage.read()
+#     return len(webget.split("<a href")) - 1
+#
+# print count_url("https://www.baidu.com/s?wd=aaa&rsv_spt=1&rsv_iqid=0xcf0456bb0001bbde&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&rqlang=cn&tn=baiduhome_pg&rsv_enter=1&oq=%25E9%259C%259E%25E4%25B9%258B%25E4%25B8%2598&inputT=1629&rsv_t=0c92WD7PSsmvszMeVuTjc0EOJeFvD04%2FrgaTYZlXHvfPGB3fs8Iu2GnlujPAaS48Cmqk&rsv_pq=9548a02e0001a319&rsv_sug3=4&bs=%E9%9C%9E%E4%B9%8B%E4%B8%98")
+# #还没学正则不是很懂，根据视频答案无法达到目的
+
+def url_dict(url):
+    if not (url.startswith("https") or url.startswith("http")):
+        return "传入url格式不对"
+    else:
+        question_mark = url.find(r"?")
+        print question_mark
+        needlist = url[question_mark+1:].split("&")
+        needdict = dict([tuple(x.split("=")) for x in needlist])
+        return needdict
+
+
+print url_dict(r'http://url/api?param=2&param2=4')
+
+def delete_all(folder):
+    assert os.path.isdir(folder),"Error, it's not a folder"
+    os.chdir(path)
+    pass #用os.dir(path)得到当前路径下的所有文件名的列表
