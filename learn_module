@@ -39,4 +39,6 @@ print kouzhang("E:\gemini_images_V7.5.9.0.MAACNDE_20160805.0000.29_6.0_cn")
 ################################################################
 import pickle
 def xulie(dirname, info):
+    openfile = open(dirname,'w')
+    pickle.dump(info,openfile)
     
